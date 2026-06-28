@@ -1,0 +1,120 @@
+body{
+font-family: Arial;
+margin:0;
+background:#f6f4f3;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:#3e2723;
+color:white;
+}
+
+.navbar a{
+margin:0 10px;
+color:white;
+text-decoration:none;
+}
+
+.hero{
+text-align:center;
+padding:100px 20px;
+background:url(images/coffee-bg.jpg);
+background-size:cover;
+color:white;
+}
+
+.hero button{
+padding:10px 25px;
+border:none;
+background:#c89b3c;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.menu{
+padding:60px 20px;
+text-align:center;
+}
+
+.menu-container{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.menu-card{
+background:white;
+padding:20px;
+width:250px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.menu-card img{
+width:100%;
+border-radius:10px;
+}
+
+.about{
+padding:60px;
+text-align:center;
+background:#eee;
+}
+
+.gallery{
+text-align:center;
+padding:60px 20px;
+}
+
+.gallery-container{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.gallery-container img{
+width:250px;
+border-radius:10px;
+}
+
+.contact{
+padding:60px 20px;
+text-align:center;
+}
+
+.contact form{
+display:flex;
+flex-direction:column;
+max-width:400px;
+margin:auto;
+gap:10px;
+}
+
+.contact input,
+.contact textarea{
+padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.contact button{
+padding:10px;
+background:#3e2723;
+color:white;
+border:none;
+}
+
+footer{
+background:#3e2723;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:30px;
+}

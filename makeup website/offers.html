@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Makeup Store</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background:#fff8f8;
+    font-family: Arial, sans-serif;
+}
+
+/* Offer Section */
+.offer-section{
+    padding:70px 0;
+}
+
+.offer-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.offer-card:hover{
+    transform:translateY(-8px);
+}
+
+.offer-card img{
+    height:250px;
+    object-fit:cover;
+}
+
+.offer-badge{
+    background:#ff4d88;
+    color:white;
+    padding:8px 15px;
+    border-radius:30px;
+    display:inline-block;
+    margin-bottom:10px;
+}
+
+/* Review Section */
+.review-section{
+    background:#ffeef5;
+    padding:80px 0;
+}
+
+.review-card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    max-width:700px;
+    margin:auto;
+}
+
+.stars{
+    color:gold;
+    font-size:20px;
+}
+
+.customer-img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+</style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">GlowBeauty</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="offers.html">Offers</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- OFFER SECTION -->
+<section class="offer-section container">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Special Makeup Offers</h2>
+        <p>Get the best beauty products at amazing discounts</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800" class="w-100">
+                <div class="p-4">
+                    <span class="offer-badge">30% OFF</span>
+                    <h4>Lipstick Collection</h4>
+                    <p>Premium matte lipstick shades for every occasion.</p>
+                    <button class="btn btn-danger">Shop Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800" class="w-100">
+                <div class="p-4">
+                    <span class="offer-badge">40% OFF</span>
+                    <h4>Makeup Kit</h4>
+                    <p>Complete beauty essentials in one professional kit.</p>
+                    <button class="btn btn-danger">Shop Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="offer-card">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800" class="w-100">
+                <div class="p-4">
+                    <span class="offer-badge">25% OFF</span>
+                    <h4>Face Foundation</h4>
+                    <p>Long-lasting smooth finish for flawless beauty.</p>
+                    <button class="btn btn-danger">Shop Now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- REVIEW SECTION -->
+<section class="review-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Customer Reviews</h2>
+            <p>What our customers say about us</p>
+        </div>
+
+        <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="review-card text-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="customer-img">
+                        <h5>Sara Khan</h5>
+                        <div class="stars">★★★★★</div>
+                        <p class="mt-3">
+                            Amazing makeup products! The quality is outstanding
+                            and delivery was super fast.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="review-card text-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="customer-img">
+                        <h5>Ayesha Malik</h5>
+                        <div class="stars">★★★★★</div>
+                        <p class="mt-3">
+                            I absolutely love the lipstick collection. Colors
+                            are beautiful and long-lasting.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="review-card text-center">
+                        <img src="https://randomuser.me/api/portraits/women/50.jpg" class="customer-img">
+                        <h5>Zara Ahmed</h5>
+                        <div class="stars">★★★★☆</div>
+                        <p class="mt-3">
+                            Great experience shopping here. Products are genuine
+                            and customer service is excellent.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Auto Slide Every 3 Seconds
+let carousel = document.querySelector('#reviewCarousel');
+new bootstrap.Carousel(carousel,{
+    interval:3000,
+    ride:'carousel'
+});
+</script>
+
+</body>
+</html>

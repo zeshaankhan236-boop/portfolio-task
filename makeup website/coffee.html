@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SK Coffee </title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#f8f5f2;
+            color:#333;
+        }
+
+        /* Navbar */
+        header{
+            position:fixed;
+            width:100%;
+            top:0;
+            left:0;
+            background:#3e2723;
+            z-index:1000;
+        }
+
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 8%;
+        }
+
+        .logo{
+            color:#fff;
+        }
+
+        .nav-links{
+            display:flex;
+            list-style:none;
+            gap:20px;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:#fff;
+            font-weight:bold;
+        }
+
+        .nav-links a:hover{
+            color:#ffcc80;
+        }
+
+        /* Hero */
+        .hero{
+            height:100vh;
+            background:url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600")
+            center/cover no-repeat;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:#fff;
+        }
+
+        .overlay{
+            background:rgba(0,0,0,0.5);
+            width:100%;
+            height:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .hero h2{
+            font-size:3rem;
+            margin-bottom:10px;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:15px;
+            padding:10px 20px;
+            background:#6f4e37;
+            color:#fff;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .btn:hover{
+            background:#5a3d2b;
+        }
+
+        section{
+            padding:100px 8%;
+        }
+
+        section h2{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        /* Menu */
+        .menu-container{
+            display:flex;
+            gap:20px;
+            justify-content:center;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            width:300px;
+            background:#fff;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0 3px 10px rgba(0,0,0,0.1);
+            text-align:center;
+        }
+
+        .card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .card h3{
+            margin:15px 0;
+        }
+
+        .card p{
+            padding:0 15px 20px;
+        }
+
+        /* About */
+        .about-container{
+            display:flex;
+            gap:40px;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+
+        .about-image,
+        .about-content{
+            flex:1;
+        }
+
+        .about-image img{
+            width:100%;
+            border-radius:10px;
+        }
+
+        .about-content p{
+            margin:15px 0;
+            line-height:1.7;
+        }
+
+        /* Gallery */
+        .gallery-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+        }
+
+        .gallery-container img{
+            width:100%;
+            height:250px;
+            object-fit:cover;
+            border-radius:10px;
+        }
+
+        /* Contact */
+        .contact{
+            text-align:center;
+            background:#eee;
+        }
+
+        .contact p{
+            margin:15px 0;
+            font-size:18px;
+        }
+
+        .contact i{
+            color:#6f4e37;
+            margin-right:10px;
+        }
+
+        /* Footer */
+        footer{
+            background:#3e2723;
+            color:#fff;
+            text-align:center;
+            padding:20px;
+        }
+
+        @media(max-width:768px){
+            .navbar{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .hero h2{
+                font-size:2rem;
+            }
+
+            .about-container{
+                flex-direction:column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo">☕ Coffee</h1>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Home -->
+<section id="home" class="hero">
+    <div class="overlay">
+        <div>
+            <h2>Fresh Coffee Everyday</h2>
+            <p>Premium roasted beans & handcrafted drinks</p>
+            <a href="#menu" class="btn">Explore Menu</a>
+        </div>
+    </div>
+</section>
+
+<!-- Menu -->
+<section id="menu">
+    <h2>Our Special Coffee</h2>
+
+    <div class="menu-container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=600" alt="Espresso">
+            <h3>Espresso</h3>
+            <p>Strong and bold coffee shot.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=600" alt="Cappuccino">
+            <h3>Cappuccino</h3>
+            <p>Rich milk foam with espresso.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600" alt="Latte">
+            <h3>Latte</h3>
+            <p>Smooth and creamy coffee taste.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <h2>About Us</h2>
+
+    <div class="about-container">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800" alt="Coffee Shop">
+        </div>
+
+        <div class="about-content">
+            <h3>Brewing Happiness in Every Cup</h3>
+
+            <p>
+                Welcome to Coffee Workshop, where every cup tells a story.
+                We serve premium-quality coffee made from carefully selected beans.
+            </p>
+
+            <p>
+                Our mission is to create a warm and relaxing space where
+                coffee lovers can enjoy rich flavors and memorable moments.
+            </p>
+
+            <a href="#contact" class="btn">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+    <h2>Our Gallery</h2>
+
+    <div class="gallery-container">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600" alt="">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="">
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+
+    <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+    <p><i class="fas fa-envelope"></i> coffee@workshop.com</p>
+    <p><i class="fas fa-location-dot"></i> Karachi, Pakistan</p>
+</section>
+
+<footer>
+    <p>© 2026 Coffee Workshop | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

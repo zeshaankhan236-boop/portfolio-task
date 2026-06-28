@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPhone Style Filters</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body{
+    background:#a08f99;
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    max-width:900px;
+    width:100%;
+}
+
+.upload-box{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input[type=file]{
+    padding:10px;
+}
+
+.canvas-wrapper{
+    background:#fff;
+    padding:15px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+canvas{
+    width:100%;
+    display:block;
+    border-radius:14px;
+}
+
+.filters{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+}
+
+.filter-btn{
+    border:none;
+    padding:12px 18px;
+    border-radius:999px;
+    background:#fff;
+    color:#222;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.25s ease;
+}
+
+.filter-btn:hover{
+    transform:translateY(-2px);
+}
+
+.filter-btn.active{
+    background:#007aff;
+    color:white;
+    box-shadow:0 8px 20px rgba(0,122,255,.35);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="upload-box">
+        <input type="file" id="upload">
+    </div>
+
+    <div class="canvas-wrapper">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="none">Original</button>
+        <button class="filter-btn" data-filter="vivid">Vivid</button>
+        <button class="filter-btn" data-filter="dramatic">Dramatic</button>
+        <button class="filter-btn" data-filter="warm">Warm</button>
+        <button class="filter-btn" data-filter="cool">Cool</button>
+        <button class="filter-btn" data-filter="vividWarm">Vivid Warm</button>
+    </div>
+
+</div>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const upload = document.getElementById("upload");
+const buttons = document.querySelectorAll(".filter-btn");
+
+let currentFilter = "none";
+let img = new Image();
+
+const filters = {
+    none: "none",
+    vivid: "saturate(1.6) contrast(1.2) brightness(1.05)",
+    dramatic: "contrast(1.45) brightness(0.95) saturate(1.15)",
+    warm: "sepia(0.2) saturate(1.25) brightness(1.05)",
+    cool: "hue-rotate(10deg) saturate(1.15)",
+    vividWarm: "sepia(0.12) saturate(1.55) contrast(1.15) brightness(1.05)"
+};
+
+upload.addEventListener("change", e => {
+    const file = e.target.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = event => {
+        img.onload = renderImage;
+        img.src = event.target.result;
+    };
+
+    reader.readAsDataURL(file);
+});
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        currentFilter = btn.dataset.filter;
+        renderImage();
+    });
+});
+
+function renderImage() {
+    if(!img.src) return;
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.filter = filters[currentFilter];
+    ctx.drawImage(img,0,0);
+}
+</script>
+
+</body>
+</html>

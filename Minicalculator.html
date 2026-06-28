@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cal{
+            background-color: rgb(87, 105, 139);
+            border: 1px snow;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="cal">
+    <h1>First value</h1>
+    <input type="number" id="v1"><br>
+    <h1>Second value</h1>
+    <input type="number" id="v2"><br><br><br>
+    <h1 id="total"></h1><br><br><br>
+    <button onclick="sum()">Sum</button>
+    </div>
+
+    <script>
+        function sum(){
+            let x = Number(document.getElementById("v1").value);
+            let y = Number(document.getElementById("v2").value);
+            let result = x+y;
+
+            document.getElementById("total").innerHTML = result;
+
+        }
+        sum()
+    </script>
+</body>
+</html>

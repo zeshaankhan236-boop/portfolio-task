@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .container{
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #4facfe;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #4facfe;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            background: #00c6fb;
+        }
+
+        #result{
+            margin-top: 20px;
+            text-align: left;
+            background: #f4f9ff;
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 2;
+            color: #333;
+            font-size: 17px;
+        }
+
+        .city{
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #0077ff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Weather App</h1>
+
+        <input type="text" id="weather" placeholder="Enter city name">
+
+        <button onclick="weather()">Get Weather</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        const api = "9eae26aaef6a18bdd47bdcc60df67544";
+
+        async function weather(){
+
+            const cityname =
+                document.getElementById("weather").value.trim();
+
+            if(cityname === ""){
+
+                document.getElementById("result").innerHTML =
+                    "Please enter a city name";
+
+                return;
+            }
+
+            const url =
+            `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${api}&units=metric`;
+
+            try{
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                console.log(data);
+
+                if(data.cod != 200){
+
+                    document.getElementById("result").innerHTML =
+                        "City not found";
+
+                    return;
+                }
+
+                document.getElementById("result").innerHTML =
+                `
+                    <div class="city">
+                        📍 ${data.name}
+                    </div>
+
+                    🌡 <strong>Temperature:</strong> ${data.main.temp}°C <br>
+
+                    💧 <strong>Humidity:</strong> ${data.main.humidity}% <br>
+
+                    🌬 <strong>Wind Speed:</strong> ${data.wind.speed} m/s <br>
+
+                    👀 <strong>Visibility:</strong> ${data.visibility / 1000} km <br>
+
+                    ☁ <strong>Weather:</strong> ${data.weather[0].description}
+                `;
+
+            }
+
+            catch(error){
+
+                console.log(error);
+
+                document.getElementById("result").innerHTML =
+                    "Something went wrong";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
